@@ -1,0 +1,26 @@
+stages:
+  - build
+  - deploy
+
+#variables:
+  # Add any environment-specific variables here
+  # For example, API keys, environment variables, etc.
+
+before_script:
+  - npm install -g gatsby-cli
+  - npm run test
+
+cache:
+  paths:
+    - node_modules/
+
+build:
+  stage: build
+  script:
+    - npm install
+    - gatsby build
+
+deploy:
+  stage: deploy
+  script:
+    - echo 'Deploy script goes here'
